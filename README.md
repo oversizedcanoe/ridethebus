@@ -13,3 +13,11 @@ Card 4: Red or Black
 Card 5: Higher or lower than Card 4
 Card 6: Inside or Outside between the range of Card 4&5
 Cards 7 through 12: Same as 1 through 6.
+
+
+##### To do
+1. Artwork/Card Design
+2. CSS/Layout
+3. Logic for ties
+4. Logic for going backwards when complete
+5. Checks to make sure cards cannot be drawn multiple times
