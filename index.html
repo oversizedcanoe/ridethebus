@@ -32,21 +32,29 @@
 
     <div class="info">
         <h1>Rules</h1>
-        <p>Guess whether the next card drawn will be Red or Black. Then, guess if the next card will be higher or lower than the first
-            card. Now guess if the third card will be inside (between) or outside of the two first cards. Repeat for cards 4-6.
+        <p>Guess whether the next card drawn will be Red or Black. Then, guess if the next card will be Higher or Lower than the first
+            card. Now guess if the third card will be Inside (between) or Outside of the two first cards. Repeat for cards 4-6.
             If you mess up, you will be reset at Card 1.
+        </p>
+        <p>Once you've complete one 'lap' (6 right in a row), you must now work your way back, doing the same order: Red or Black, 
+            Higher or Lower, In or Out, repeat. However, if you mess up at this half, you will be reset at card 6 (halfway through).
+        </p>
+        <p>Watch out for the card count. If you run out of cards, you won't be able to continue anymore. If youre at card 10/12 and run
+            out of cards, you'll be forced to restart...from the <strong>very</strong> beginning. Pressing the Reset button will
+            also reshuffle the deck.
         </p>
         <p>Note: Any ties are considered a loss. If you are guessing Higher/Lower, and the card drawn is the same as the previous card,
             it is considered a loss. If you are guessing In/Out and the card drawn has the same value as one of the previous cards, 
             that is also a loss.
         </p>
     </div>
-    
+    <button id="dataButton" onclick="checkTotals()"> Check </button>
     
     
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="cards.js"></script>
     <script src="scripts.js"></script>
+    <script src="data.js"></script>
 </body>
 </html>

@@ -19,14 +19,18 @@ function updateCardCount(){
 function win(pickedCard){
     console.log("win");
     counter+=1;
-    updateButton(counter);
     console.log("win counter is at " + counter)
     console.log("-------------------------------------------")
     updateCardBackground(pickedCard);
     if (counter==6){
         sleep(1200).then(() => {
         updateAllCards();
+        counter++;
         })
+    }
+    updateButton(counter);
+    if (counter == 13){
+        alert("Oh my god, you actually won. Congratulations.")
     }
 }
 
@@ -36,11 +40,12 @@ function lose(pickedCard){
     updateCardBackground(pickedCard);
     sleep(1200).then(() => {
     console.log("lose");
-    if (counter >= 6){
-        counter = 6;
+    if (counter >= 7){
+        counter = 7;
     } else {
         counter = 0;
     }
+
     updateAllCards();
     updateButton(counter);
     console.log("counter is reset to " + counter)
@@ -50,22 +55,22 @@ function lose(pickedCard){
 
 // Depending on the win counter, the choice of buttons will change
 function updateButton(counter){
-    if (counter == 0 || counter == 6){
+    if (counter == 0 || counter == 7){
         $("#button1").html("Red");
         $("#button2").html("Black");
-    } else if (counter == 1 || counter == 7){
+    } else if (counter == 1 || counter == 8){
         $("#button1").html("Higher");
         $("#button2").html("Lower");
-    } else if (counter == 2 || counter == 8){
+    } else if (counter == 2 || counter == 9){
         $("#button1").html("In");
         $("#button2").html("Out");
-    } else if (counter == 3 || counter == 9){
+    } else if (counter == 3 || counter == 10){
         $("#button1").html("Red");
         $("#button2").html("Black");
-    } else if (counter == 4 || counter == 10){
+    } else if (counter == 4 || counter == 11){
         $("#button1").html("Higher");
         $("#button2").html("Lower");
-    } else if (counter == 5 || counter == 11){
+    } else if (counter == 5 || counter == 12){
         $("#button1").html("In");
         $("#button2").html("Out");
     }
@@ -89,22 +94,22 @@ function generateRandomCard(){
 // When either button is clicked, this function is called. Depending on where the counter is at, a game is triggered. The buttons pass
 // the parameter to their respective game function.
 function playGame(color, highlow, inout){
-    if (counter == 0 || counter == 6){
+    if (counter == 0 || counter == 7){
         console.log("You chose: " + color)
         redOrBlack(color);
-    } else if (counter == 1 || counter == 7){
+    } else if (counter == 1 || counter == 8){
         console.log("You chose: " + highlow)
         higherLower(highlow);
-    } else if (counter == 2 || counter == 8){
+    } else if (counter == 2 || counter == 9){
         console.log("You chose: " + inout)
         inOrOut(inout);
-    } else if (counter == 3 || counter == 9){
+    } else if (counter == 3 || counter == 10){
         console.log("You chose: " + color)
         redOrBlack(color);
-    } else if (counter == 4 || counter == 10){
+    } else if (counter == 4 || counter == 11){
         console.log("You chose: " + highlow)
         higherLower(highlow);
-    } else if (counter == 5 || counter == 11){
+    } else if (counter == 5 || counter == 12){
         console.log("You chose: " + inout)
         inOrOut(inout);
     }
@@ -161,14 +166,16 @@ function higherLower(highlow){
 }
 
 function inOrOut(inout){
+    let small = 0;
+    let big = 1;
     let num1 = redOrBlackGeneratedCard.value;
     let num2 = higherLowerGeneratedCard.value;
     if (num1>num2){
-        let small = num2;
-        let big = num1;
-    } else if (num1>num2 || num1 == num2){
-        let small = num1;
-        let big = num2;
+        small = num2;
+        big = num1;
+    } else if (num1<num2 || num1 == num2){
+        small = num1;
+        big = num2;
     } 
     console.log("Inside the InOrOut game, we are deciding between the values " + small + " and " + big);
     inOutGeneratedCard = generateRandomCard();
@@ -220,6 +227,25 @@ function updateCardBackground(pickedCard){
     if (counter == 6){
         $("#card6").css("background-image", "url('/pics/" + cardName + ".png')");
     }
+    if (counter == 7){
+        $("#card6").css("background-image", "url('/pics/" + cardName + ".png')");
+    }
+    if (counter == 8){
+        $("#card5").css("background-image", "url('/pics/" + cardName + ".png')");
+    }
+    if (counter == 9){
+        $("#card4").css("background-image", "url('/pics/" + cardName + ".png')");
+    }
+    if (counter == 10){
+        $("#card3").css("background-image", "url('/pics/" + cardName + ".png')");
+    }
+    if (counter == 11){
+        $("#card2").css("background-image", "url('/pics/" + cardName + ".png')");
+    }
+    if (counter == 12){
+        $("#card1").css("background-image", "url('/pics/" + cardName + ".png')");
+    }
+
 }
 
 // When a user clicks the reset button, the used card deck is re-added to the remaining deck, all cards are flipped over, and win
