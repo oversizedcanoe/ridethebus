@@ -22,9 +22,9 @@ Cards 7 through 12: Same as 1 through 6.
 4. <del>Checks to make sure cards cannot be drawn multiple times<del>
 5. <del>Have card count shown on screen<del>
 6. <del>Have reset button which will add cards back to deck<del>
-7. show stats on screen: % of cards each colour, cards drawn, etc. Make this hidden unless user wants to see it
+7. <del>show stats on screen: % of cards each colour. Make this hidden unless user wants to see it<del>
 8. <del>show result even if wrong, sleep for 3 seconds, then restart.<del>
 9. add function to change card color
 10. <del>comment code...<del>
-11. add functionality to go backwards once complete full loop
-12. Add event when user wins
+11. <del>add functionality to go backwards once complete full loop<del>
+12. <del>Add event when user wins<del>
