@@ -2,9 +2,14 @@ let counter = 0;
 let higherLowerGeneratedCard;
 let redOrBlackGeneratedCard;
 let inOutGeneratedCard;
+$("#cardCount").html(cards.length)
 
 const sleep = (milliseconds) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
+}
+
+function updateCardCount(){
+    $("#cardCount").html(cards.length)
 }
 
 
@@ -56,7 +61,12 @@ function updateButton(counter){
 function generateRandomCard(){
     let num = (Math.floor(Math.random() * cards.length));
     let generatedCard = cards[num];
-    cards.splice(num, 1);
+    for(let i = 0; i < cards.length; i++){ 
+        if (cards[i] === generatedCard) {
+            cards.splice(i, 1); 
+        }
+    }
+    $("#cardCount").html(cards.length);
     usedCards.push(generatedCard);
     return generatedCard;
 }
@@ -183,6 +193,9 @@ function updateCardBackground(pickedCard){
 
 function resetDeck(){
     cards.push.apply(cards, usedCards);
+    usedCards = [];
     counter = 0;
+    updateButton(counter);
     updateAllCards();
+    updateCardCount();
 }

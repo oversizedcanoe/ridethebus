@@ -18,10 +18,12 @@ Cards 7 through 12: Same as 1 through 6.
 ##### To do
 1. Artwork/Card Design
 2. CSS/Layout
-3. Logic for ties
-4. Logic for going backwards when complete
-5. <del>Checks to make sure cards cannot be drawn multiple times<del>
-6. Have card count shown on screen
-7. <del>Have reset button which will add cards back to deck<del>
-8. show stats on screen: % of cards each colour, cards drawn, etc
-9. <del>show result even if wrong, sleep for 3 seconds, then restart.<del>
+3. <del>Logic for ties<del>
+4. <del>Checks to make sure cards cannot be drawn multiple times<del>
+5. <del>Have card count shown on screen<del>
+6. <del>Have reset button which will add cards back to deck<del>
+7. show stats on screen: % of cards each colour, cards drawn, etc. Make this hidden unless user wants to see it
+8. <del>show result even if wrong, sleep for 3 seconds, then restart.<del>
+9. add function to change card color
+10. comment code...
+11. add functionality to go backwards once complete full loop
