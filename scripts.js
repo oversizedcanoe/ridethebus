@@ -3,18 +3,30 @@ let higherLowerGeneratedCard;
 let redOrBlackGeneratedCard;
 let inOutGeneratedCard;
 
-function win(){
+const sleep = (milliseconds) => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
+}
+
+
+function win(pickedCard){
     console.log("win");
     counter+=1;
     updateButton(counter);
-    console.log("counter is at " + counter)
+    console.log("win counter is at " + counter)
+    console.log("-------------------------------------------")
+    updateCardBackground(pickedCard);
 }
 
-function lose(){
+function lose(pickedCard){
+    updateCardBackground(pickedCard);
+    sleep(1200).then(() => {
     console.log("lose");
     counter = 0;
+    updateAllCards();
     updateButton(counter);
-    console.log("counter is at " + counter)
+    console.log("counter is reset to " + counter)
+    console.log("-------------------------------------------")
+    })
 }
 
 
@@ -29,11 +41,11 @@ function updateButton(counter){
         $("#button1").html("In");
         $("#button2").html("Out");
     } else if (counter == 3){
-        $("#button1").html("Higher");
-        $("#button2").html("Lower");
-    } else if (counter == 4){
         $("#button1").html("Red");
         $("#button2").html("Black");
+    } else if (counter == 4){
+        $("#button1").html("Higher");
+        $("#button2").html("Lower");
     } else if (counter == 5){
         $("#button1").html("In");
         $("#button2").html("Out");
@@ -46,22 +58,27 @@ function generateRandomCard(){
     let generatedCard = cards[num];
     cards.splice(num, 1);
     usedCards.push(generatedCard);
-    console.log("inside genCard function, the following card was generated:" + generatedCard.value + " of " + generatedCard.suit)
     return generatedCard;
 }
 
 function playGame(color, highlow, inout){
     if (counter == 0){
+        console.log("You chose: " + color)
         redOrBlack(color);
     } else if (counter == 1){
+        console.log("You chose: " + highlow)
         higherLower(highlow);
     } else if (counter == 2){
+        console.log("You chose: " + inout)
         inOrOut(inout);
     } else if (counter == 3){
+        console.log("You chose: " + color)
         redOrBlack(color);
     } else if (counter == 4){
+        console.log("You chose: " + highlow)
         higherLower(highlow);
     } else if (counter == 5){
+        console.log("You chose: " + inout)
         inOrOut(inout);
     }
 }
@@ -72,16 +89,18 @@ function redOrBlack(color){
     console.log("The red or black function's generated card is " + redOrBlackGeneratedCard.value + " of " + redOrBlackGeneratedCard.suit)
     if (color == "red"){
         if (redOrBlackGeneratedCard.suit == "heart" || redOrBlackGeneratedCard.suit == "diamond"){
-            win()
+            win(redOrBlackGeneratedCard)
         }else{
-            lose()
+            counter+=1;
+            lose(redOrBlackGeneratedCard)
         }
     }
     if (color == "black"){
         if (redOrBlackGeneratedCard.suit == "spade" || redOrBlackGeneratedCard.suit == "club"){
-            win()
+            win(redOrBlackGeneratedCard)
         }else{
-            lose()
+            counter+=1;
+            lose(redOrBlackGeneratedCard)
         }
     }
 }
@@ -92,16 +111,18 @@ function higherLower(highlow){
     console.log("the old value of the red/black card is " + redOrBlackGeneratedCard.value + " of " + redOrBlackGeneratedCard.suit)
     if (highlow == "higher"){
         if (higherLowerGeneratedCard.value > redOrBlackGeneratedCard.value){
-            win()
+            win(higherLowerGeneratedCard)
         } else{
-            lose()
+            counter+=1;
+            lose(higherLowerGeneratedCard)
         }
     }
     if (highlow == "lower"){
         if (higherLowerGeneratedCard.value < redOrBlackGeneratedCard.value){
-            win()
+            win(higherLowerGeneratedCard)
         } else{
-            lose()
+            counter+=1;
+            lose(higherLowerGeneratedCard)
         }
     }
     
@@ -114,19 +135,51 @@ function inOrOut(inout){
     let nums = [num1, num2];
     nums.sort();
     inOutGeneratedCard = generateRandomCard();
+    console.log("inside of in or out game, the random card generated is " + inOutGeneratedCard.value + " of " + inOutGeneratedCard.suit)
     if (inout == "in"){
-        if (inOutGeneratedCard.value <=nums[1] && inOutGeneratedCard.value >= nums[0]){
-            win()
+        if (inOutGeneratedCard.value < nums[1] && inOutGeneratedCard.value > nums[0]){
+            win(inOutGeneratedCard)
         } else{
-            lose()
+            counter+=1;
+            lose(inOutGeneratedCard)
         }
     }
     if (inout == "out"){
-        if (inOutGeneratedCard.value <=nums[0] || inOutGeneratedCard.value >= nums[1]){
-            win()
+        if (inOutGeneratedCard.value < nums[0] || inOutGeneratedCard.value > nums[1]){
+            win(inOutGeneratedCard)
         } else{
-            lose()
+            counter+=1;
+            lose(inOutGeneratedCard)
         }   
     }
     
+}
+
+function updateAllCards(){
+    $(".card").css("background-image", "url('/pics/red_back.png')")
+
+}
+function updateCardBackground(pickedCard){
+    let cardName = pickedCard.name;
+    // if (counter == 0){
+    //     $(".card").css("background-image", "url('/pics/red_back.png')")
+    // }
+    if (counter == 1){
+        $("#card1").css("background-image", "url('/pics/" + cardName + ".png')");
+    }
+    if (counter == 2){
+        $("#card2").css("background-image", "url('/pics/" + cardName + ".png')")
+    }
+    if (counter == 3){
+        $("#card3").css("background-image", "url('/pics/" + cardName + ".png')")
+    }
+    if (counter == 4){
+        $("#card4").css("background-image", "url('/pics/" + cardName + ".png')")
+    }
+    if (counter == 5){
+        $("#card5").css("background-image", "url('/pics/" + cardName + ".png')")
+    }
+    if (counter == 6){
+        $("#card6").css("background-image", "url('/pics/" + cardName + ".png')")
+    }
 }

@@ -4,9 +4,12 @@ html {
 
 .card {
   border: 2px solid black;
-  height: 20rem;
-  width: 15rem;
+  height: 15rem;
+  width: 10rem;
+  margin: 2rem;
   display: inline-block;
+  background-image: url("/pics/red_back.png");
+  background-size: 100% 100%;
 }
 
 #buttons {
