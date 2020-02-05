@@ -166,28 +166,28 @@ function inOrOut(inout){
 }
 
 function updateAllCards(){
-    $(".card").css("background-image", "url('/pics/red_back.png')");
+    $(".card").css("background-image", "url('pics/red_back.png')");
 
 }
 function updateCardBackground(pickedCard){
     let cardName = pickedCard.name;
     if (counter == 1){
-        $("#card1").css("background-image", "url('/pics/" + cardName + ".png')");
+        $("#card1").css("background-image", "url('pics/" + cardName + ".png')");
     }
     if (counter == 2){
-        $("#card2").css("background-image", "url('/pics/" + cardName + ".png')");
+        $("#card2").css("background-image", "url('pics/" + cardName + ".png')");
     }
     if (counter == 3){
-        $("#card3").css("background-image", "url('/pics/" + cardName + ".png')");
+        $("#card3").css("background-image", "url('pics/" + cardName + ".png')");
     }
     if (counter == 4){
-        $("#card4").css("background-image", "url('/pics/" + cardName + ".png')");
+        $("#card4").css("background-image", "url('pics/" + cardName + ".png')");
     }
     if (counter == 5){
-        $("#card5").css("background-image", "url('/pics/" + cardName + ".png')");
+        $("#card5").css("background-image", "url('pics/" + cardName + ".png')");
     }
     if (counter == 6){
-        $("#card6").css("background-image", "url('/pics/" + cardName + ".png')");
+        $("#card6").css("background-image", "url('pics/" + cardName + ".png')");
     }
 }
 
