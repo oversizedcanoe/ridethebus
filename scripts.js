@@ -202,7 +202,7 @@ function inOrOut(inout){
 
 // When loss occurs, this function is called
 function updateAllCards(){
-    $(".card").css("background-image", "url('/pics/red_back.png')");
+    $(".card").css("background-image", "url('/pics/" + $("#colors").val() + "_back.png')");
 
 }
 
@@ -258,3 +258,7 @@ function resetDeck(){
     updateAllCards();
     updateCardCount();
 }
+
+$("#colors").change(function() {
+    resetDeck();
+});
