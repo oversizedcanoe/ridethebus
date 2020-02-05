@@ -8,25 +8,43 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <h1>Ride The Bus</h1>
-    
-    <div class="card" id="card1"></div id=>
-    <div class="card" id="card2"></div id=>
-    <div class="card" id="card3"></div id=>
-    <div class="card" id="card4"></div id=>
-    <div class="card" id="card5"></div id=>
-    <div class="card" id="card6"></div id=>
+    <div class="container">
+        <h1>Ride The Bus</h1>
+        
+        <div class="card" id="card1"></div id=>
+        <div class="card" id="card2"></div id=>
+        <div class="card" id="card3"></div id=>
+        <div class="card" id="card4"></div id=>
+        <div class="card" id="card5"></div id=>
+        <div class="card" id="card6"></div id=>
 
-    <br>
+        <br>
 
-    <div id="buttons">
-        <button id="button1" onclick="playGame('red','higher','in')">Red</button>
-        <button id="button2" onclick="playGame('black','lower','out')">Black</button>
+        <div id="buttons">
+            <button id="button1" onclick="playGame('red','higher','in')">Red</button>
+            <button id="button2" onclick="playGame('black','lower','out')">Black</button>
+        </div>
+
+        <!-- <p>Card Count: <span id="cardCount"></span></p> -->
+        <button id="reset" onclick="resetDeck()">Reset</button>
+
     </div>
 
-    <p>Card Count: <span id="cardCount"></span></p>
-
-
+    <div class="info">
+        <h1>Rules</h1>
+        <p>Guess whether the next card drawn will be Red or Black. Then, guess if the next card will be higher or lower than the first
+            card. Now guess if the third card will be inside (between) or outside of the two first cards. Repeat for cards 4-6.
+            If you mess up, you will be reset at Card 1.
+        </p>
+        <p>Note: Any ties are considered a loss. If you are guessing Higher/Lower, and the card drawn is the same as the previous card,
+            it is considered a loss. If you are guessing In/Out and the card drawn has the same value as one of the previous cards, 
+            that is also a loss.
+        </p>
+    </div>
+    
+    
+    
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="cards.js"></script>
     <script src="scripts.js"></script>

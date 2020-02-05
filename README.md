@@ -20,8 +20,8 @@ Cards 7 through 12: Same as 1 through 6.
 2. CSS/Layout
 3. Logic for ties
 4. Logic for going backwards when complete
-5. Checks to make sure cards cannot be drawn multiple times
+5. <del>Checks to make sure cards cannot be drawn multiple times<del>
 6. Have card count shown on screen
-7. Have reset button which will add cards back to deck 
+7. <del>Have reset button which will add cards back to deck<del>
 8. show stats on screen: % of cards each colour, cards drawn, etc
-9. show result even if wrong, sleep for 3 seconds, then restart.
+9. <del>show result even if wrong, sleep for 3 seconds, then restart.<del>
