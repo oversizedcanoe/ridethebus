@@ -17,6 +17,7 @@ Cards 7 through 12: Same as 1 through 6.
 
 ##### To do
 1. Artwork/Card Design
+    - This will be done at a future date when I have more time. In the meantime, I am using .png files found here: https://acbl.mybigcommerce.com/52-playing-cards/
 2. CSS/Layout
 3. <del>Logic for ties<del>
 4. <del>Checks to make sure cards cannot be drawn multiple times<del>
