@@ -25,5 +25,6 @@ Cards 7 through 12: Same as 1 through 6.
 7. show stats on screen: % of cards each colour, cards drawn, etc. Make this hidden unless user wants to see it
 8. <del>show result even if wrong, sleep for 3 seconds, then restart.<del>
 9. add function to change card color
-10. comment code...
+10. <del>comment code...<del>
 11. add functionality to go backwards once complete full loop
+12. Add event when user wins
