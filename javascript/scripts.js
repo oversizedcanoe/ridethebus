@@ -202,7 +202,7 @@ function inOrOut(inout){
 
 // When loss occurs, this function is called
 function updateAllCards(){
-    $(".card").css("background-image", "url('/pics/" + $("#colors").val() + "_back.png')");
+    $(".card").css("background-image", "url('../pics/" + $("#colors").val() + "_back.png')");
 
 }
 
@@ -210,40 +210,40 @@ function updateAllCards(){
 function updateCardBackground(pickedCard){
     let cardName = pickedCard.name;
     if (counter == 1){
-        $("#card1").css("background-image", "url('/pics/" + cardName + ".png')");
+        $("#card1").css("background-image", "url('../pics/" + cardName + ".png')");
     }
     if (counter == 2){
-        $("#card2").css("background-image", "url('/pics/" + cardName + ".png')");
+        $("#card2").css("background-image", "url('../pics/" + cardName + ".png')");
     }
     if (counter == 3){
-        $("#card3").css("background-image", "url('/pics/" + cardName + ".png')");
+        $("#card3").css("background-image", "url('../pics/" + cardName + ".png')");
     }
     if (counter == 4){
-        $("#card4").css("background-image", "url('/pics/" + cardName + ".png')");
+        $("#card4").css("background-image", "url('../pics/" + cardName + ".png')");
     }
     if (counter == 5){
-        $("#card5").css("background-image", "url('/pics/" + cardName + ".png')");
+        $("#card5").css("background-image", "url('../pics/" + cardName + ".png')");
     }
     if (counter == 6){
-        $("#card6").css("background-image", "url('/pics/" + cardName + ".png')");
+        $("#card6").css("background-image", "url('../pics/" + cardName + ".png')");
     }
     if (counter == 7){
-        $("#card6").css("background-image", "url('/pics/" + cardName + ".png')");
+        $("#card6").css("background-image", "url('../pics/" + cardName + ".png')");
     }
     if (counter == 8){
-        $("#card5").css("background-image", "url('/pics/" + cardName + ".png')");
+        $("#card5").css("background-image", "url('../pics/" + cardName + ".png')");
     }
     if (counter == 9){
-        $("#card4").css("background-image", "url('/pics/" + cardName + ".png')");
+        $("#card4").css("background-image", "url('../pics/" + cardName + ".png')");
     }
     if (counter == 10){
-        $("#card3").css("background-image", "url('/pics/" + cardName + ".png')");
+        $("#card3").css("background-image", "url('../pics/" + cardName + ".png')");
     }
     if (counter == 11){
-        $("#card2").css("background-image", "url('/pics/" + cardName + ".png')");
+        $("#card2").css("background-image", "url('../pics/" + cardName + ".png')");
     }
     if (counter == 12){
-        $("#card1").css("background-image", "url('/pics/" + cardName + ".png')");
+        $("#card1").css("background-image", "url('../pics/" + cardName + ".png')");
     }
 
 }
