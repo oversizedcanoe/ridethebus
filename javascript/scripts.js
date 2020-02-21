@@ -33,6 +33,9 @@ function win(pickedCard){
         })
     }
     updateButton(counter);
+    if (counter == 16){
+        alert("Oh my god, you actually won. Congratulations.")
+    }
 }
 
 // When a user loses a round, the card is flipped, then the program waits 1.2 seconds. Then, the counter is reset to 0. All cards are
@@ -75,9 +78,6 @@ function updateButton(counter){
     } else if (counter == 5 || counter == 15){
         $("#button1").html("In");
         $("#button2").html("Out");
-    }
-    if (counter == 16){
-        alert("Oh my god, you actually won. Congratulations.")
     }
 }
 
