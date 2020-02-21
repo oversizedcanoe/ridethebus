@@ -58,3 +58,10 @@ form{
         font-size: 0.8rem;
     }
 }
+@media (max-width:500px){
+    .card{
+        margin:0.2rem;
+        height: 6rem;
+        width: 4rem;
+    }
+}
