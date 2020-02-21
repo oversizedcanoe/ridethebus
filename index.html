@@ -10,15 +10,16 @@
 <body>
     <div class="container">
         <h1>Ride The Bus</h1>
-        
-        <div class="card" id="card1"></div id=>
-        <div class="card" id="card2"></div id=>
-        <div class="card" id="card3"></div id=>
-        <div class="card" id="card4"></div id=>
-        <div class="card" id="card5"></div id=>
-        <div class="card" id="card6"></div id=>
-
-        <br>
+        <div id="cards">
+            <div class="card" id="card1"></div>
+            <div class="card" id="card2"></div>
+            <div class="card" id="card3"></div>
+        </div>
+        <div id="cards">
+            <div class="card" id="card4"></div>
+            <div class="card" id="card5"></div>
+            <div class="card" id="card6"></div>
+        </div>
 
         <div id="buttons">
             <button id="button1" onclick="playGame('red','higher','in')">Red</button>
@@ -27,9 +28,21 @@
 
         <p>Card Count: <span id="cardCount"></span></p>
         <button id="reset" onclick="resetDeck()">Reset</button>
-
-    </div>
-
+        <p></p>
+        <button id="dataButton" onclick="checkTotals()"> Color Totals </button>
+        <form>
+            <legend>Select a card color (<em>Resets Deck</em>):</legend>
+            <select id="colors">
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="yellow">Yellow</option>
+                <option value="purple">Purple</option>
+                <option value="gray">Gray</option>
+            </select>
+        </form>
+    </div>      
+    
     <div class="info">
         <h1>Rules</h1>
         <p>Guess whether the next card drawn will be Red or Black. Then, guess if the next card will be Higher or Lower than the first
@@ -45,23 +58,9 @@
         </p>
         <p>Note: Any ties are considered a loss. If you are guessing Higher/Lower, and the card drawn is the same as the previous card,
             it is considered a loss. If you are guessing In/Out and the card drawn has the same value as one of the previous cards, 
-            that is also a loss.
+            that is also a loss. Sorry, I don't make the rules. Well, I guess I do... I just like to see people lose.
         </p>
     </div>
-    <button id="dataButton" onclick="checkTotals()"> Check </button>
-    
-    <form>
-            <legend>Select a card color (<em>Resets Deck</em>):</legend>
-            <select id="colors">
-                <option value="red">Red</option>
-                <option value="blue">Blue</option>
-                <option value="green">Green</option>
-                <option value="yellow">Yellow</option>
-                <option value="purple">Purple</option>
-                <option value="gray">Gray</option>
-            </select>
-    </form>
-    
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="javascript/cards.js"></script>

@@ -29,5 +29,6 @@ Cards 7 through 12: Same as 1 through 6.
 10. <del>comment code...<del>
 11. <del>add functionality to go backwards once complete full loop<del>
 12. <del>Add event when user wins<del>
-13. Fix bug: when user wins 6th card (2nd in or out), it flips the card back and immediately moves to the 2nd card from right. It 
-    also keeps the button as in or out.
+13. <del>Fix bug: when user wins 6th card (2nd in or out), it flips the card back and immediately moves to the 2nd card from right. It 
+    also keeps the button as in or out.<del>
+14. Reformat page to have rules at the top, media queries for playing on mobile

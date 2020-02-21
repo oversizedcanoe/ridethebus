@@ -18,36 +18,42 @@ function updateCardCount(){
 // is used to change button HTML, show the correct cards, etc
 function win(pickedCard){
     console.log("win");
-    updateCardBackground(pickedCard);
+    if (counter != 7){
     counter+=1;
-    if(counter == 6){
-        counter=10;
     }
     console.log("win counter is at " + counter)
     console.log("-------------------------------------------")
     
-    if (counter==10){
-        console.log("Counter is at 10")
+    if (counter==6){
+        console.log("Counter is at 6,....")
         sleep(1200).then(() => {
         updateAllCards();
+        counter++;
+        console.log("Counter has been ++ to 7");
         })
     }
+    updateCardBackground(pickedCard);
+    if (counter == 7){
+        counter++;
+    }
     updateButton(counter);
+    if (counter == 13){
+        alert("Oh my god, you actually won. Congratulations.")
+    }
 }
 
 // When a user loses a round, the card is flipped, then the program waits 1.2 seconds. Then, the counter is reset to 0. All cards are
 // flipped over and the game restarts.
 function lose(pickedCard){
-    
     updateCardBackground(pickedCard);
-    counter++;
-    sleep(600).then(() => {
+    sleep(1200).then(() => {
     console.log("lose");
-    if (counter >= 10){
-        counter = 10;
+    if (counter >= 7){
+        counter = 7;
     } else {
         counter = 0;
     }
+
     updateAllCards();
     updateButton(counter);
     console.log("counter is reset to " + counter)
@@ -57,27 +63,24 @@ function lose(pickedCard){
 
 // Depending on the win counter, the choice of buttons will change
 function updateButton(counter){
-    if (counter == 0 || counter == 6 || counter ==10){
+    if (counter == 0 || counter == 6 || counter ==7){
         $("#button1").html("Red");
         $("#button2").html("Black");
-    } else if (counter == 1 || counter == 11){
+    } else if (counter == 1 || counter == 8){
         $("#button1").html("Higher");
         $("#button2").html("Lower");
-    } else if (counter == 2 || counter == 12){
+    } else if (counter == 2 || counter == 9){
         $("#button1").html("In");
         $("#button2").html("Out");
-    } else if (counter == 3 || counter == 13){
+    } else if (counter == 3 || counter == 10){
         $("#button1").html("Red");
         $("#button2").html("Black");
-    } else if (counter == 4 || counter == 14){
+    } else if (counter == 4 || counter == 11){
         $("#button1").html("Higher");
         $("#button2").html("Lower");
-    } else if (counter == 5 || counter == 15){
+    } else if (counter == 5 || counter == 12){
         $("#button1").html("In");
         $("#button2").html("Out");
-    }
-    if (counter == 16){
-        alert("Oh my god, you actually won. Congratulations.")
     }
 }
 
@@ -85,10 +88,6 @@ function updateButton(counter){
 // used cards in a seperate list.
 function generateRandomCard(){
     let num = (Math.floor(Math.random() * cards.length));
-    if(cards.length == 0){
-        alert("No more cards left in the deck, sorry. Reseting deck.")
-        resetDeck();
-    } else{
     let generatedCard = cards[num];
     for(let i = 0; i < cards.length; i++){ 
         if (cards[i] === generatedCard) {
@@ -98,28 +97,27 @@ function generateRandomCard(){
     $("#cardCount").html(cards.length);
     usedCards.push(generatedCard);
     return generatedCard;
-    }
 }
 
 // When either button is clicked, this function is called. Depending on where the counter is at, a game is triggered. The buttons pass
 // the parameter to their respective game function.
 function playGame(color, highlow, inout){
-    if (counter == 0 || counter == 10){
+    if (counter == 0 || counter == 7){
         console.log("You chose: " + color)
         redOrBlack(color);
-    } else if (counter == 1 || counter == 11){
+    } else if (counter == 1 || counter == 8){
         console.log("You chose: " + highlow)
         higherLower(highlow);
-    } else if (counter == 2 || counter == 12){
+    } else if (counter == 2 || counter == 9){
         console.log("You chose: " + inout)
         inOrOut(inout);
-    } else if (counter == 3 || counter == 13){
+    } else if (counter == 3 || counter == 10){
         console.log("You chose: " + color)
         redOrBlack(color);
-    } else if (counter == 4 || counter == 14){
+    } else if (counter == 4 || counter == 11){
         console.log("You chose: " + highlow)
         higherLower(highlow);
-    } else if (counter == 5 || counter == 15){
+    } else if (counter == 5 || counter == 12){
         console.log("You chose: " + inout)
         inOrOut(inout);
     }
@@ -138,6 +136,7 @@ function redOrBlack(color){
         if (redOrBlackGeneratedCard.suit == "heart" || redOrBlackGeneratedCard.suit == "diamond"){
             win(redOrBlackGeneratedCard);
         }else{
+            counter+=1;
             lose(redOrBlackGeneratedCard);
         }
     }
@@ -145,6 +144,7 @@ function redOrBlack(color){
         if (redOrBlackGeneratedCard.suit == "spade" || redOrBlackGeneratedCard.suit == "club"){
             win(redOrBlackGeneratedCard);
         }else{
+            counter+=1;
             lose(redOrBlackGeneratedCard);
         }
     }
@@ -158,6 +158,7 @@ function higherLower(highlow){
         if (higherLowerGeneratedCard.value > redOrBlackGeneratedCard.value){
             win(higherLowerGeneratedCard);
         } else{
+            counter+=1;
             lose(higherLowerGeneratedCard);
         }
     }
@@ -165,6 +166,7 @@ function higherLower(highlow){
         if (higherLowerGeneratedCard.value < redOrBlackGeneratedCard.value){
             win(higherLowerGeneratedCard);
         } else{
+            counter+=1;
             lose(higherLowerGeneratedCard);
         }
     }
@@ -190,6 +192,7 @@ function inOrOut(inout){
         if (inOutGeneratedCard.value < big && inOutGeneratedCard.value > small){
             win(inOutGeneratedCard);
         } else{
+            counter+=1;
             lose(inOutGeneratedCard);
         }
     }
@@ -197,6 +200,7 @@ function inOrOut(inout){
         if (inOutGeneratedCard.value < small || inOutGeneratedCard.value > big){
             win(inOutGeneratedCard);
         } else{
+            counter+=1;
             lose(inOutGeneratedCard);
         }   
     }
@@ -213,40 +217,41 @@ function updateAllCards(){
 // When a card is generated for any game, this function changes the card background image to the generated card.
 function updateCardBackground(pickedCard){
     let cardName = pickedCard.name;
-    if (counter == 0){
+    if (counter == 1){
         $("#card1").css("background-image", "url('./pics/" + cardName + ".png')");
     }
-    if (counter == 1){
-        $("#card2").css("background-image", "url('./pics/" + cardName + ".png')");
-    }
     if (counter == 2){
-        $("#card3").css("background-image", "url('./pics/" + cardName + ".png')");
+        $("#card2").css("background-image", "url('./pics/" + cardName + ".png')");
     }
     if (counter == 3){
-        $("#card4").css("background-image", "url('./pics/" + cardName + ".png')");
-    }
-    if (counter == 4){
-        $("#card5").css("background-image", "url('./pics/" + cardName + ".png')");
-    }
-    if (counter == 5){
-        $("#card6").css("background-image", "url('./pics/" + cardName + ".png')");
-    }
-    if (counter == 10){
-        $("#card6").css("background-image", "url('./pics/" + cardName + ".png')");
-    }
-    if (counter == 11){
-        $("#card5").css("background-image", "url('./pics/" + cardName + ".png')");
-    }
-    if (counter == 12){
-        $("#card4").css("background-image", "url('./pics/" + cardName + ".png')");
-    }
-    if (counter == 13){
         $("#card3").css("background-image", "url('./pics/" + cardName + ".png')");
     }
-    if (counter == 14){
+    if (counter == 4){
+        $("#card4").css("background-image", "url('./pics/" + cardName + ".png')");
+    }
+    if (counter == 5){
+        $("#card5").css("background-image", "url('./pics/" + cardName + ".png')");
+    }
+    if (counter == 6 || counter == 7){
+        $("#card6").css("background-image", "url('./pics/" + cardName + ".png')");
+    }
+    // /////////////////////////////////
+    // if (counter == 7){
+    //     $("#card6").css("background-image", "url('./pics/" + cardName + ".png')");
+    // }
+    if (counter == 8){
+        $("#card5").css("background-image", "url('./pics/" + cardName + ".png')");
+    }
+    if (counter == 9){
+        $("#card4").css("background-image", "url('./pics/" + cardName + ".png')");
+    }
+    if (counter == 10){
+        $("#card3").css("background-image", "url('./pics/" + cardName + ".png')");
+    }
+    if (counter == 11){
         $("#card2").css("background-image", "url('./pics/" + cardName + ".png')");
     }
-    if (counter == 15){
+    if (counter == 12){
         $("#card1").css("background-image", "url('./pics/" + cardName + ".png')");
     }
 
