@@ -3,7 +3,7 @@ html{
 }
 .container{
     text-align: center;
-    width: 90%;
+    width: 100%;
     margin: auto;
 }
 .card{
@@ -42,12 +42,17 @@ form{
 }
 #cards{
     display: inline-block;
+    min-width: 50%;
+    max-width: 100%;
 }
 
 @media (max-width:700px){
     .card{
         height:9rem;
         width:6rem;
+    }
+    #cards{
+        display: block;
     }
     button{
         font-size: 1rem;
@@ -63,5 +68,8 @@ form{
         margin:0.2rem;
         height: 6rem;
         width: 4rem;
+    }
+    #cards{
+    display: block;
     }
 }

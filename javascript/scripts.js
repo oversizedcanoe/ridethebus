@@ -44,7 +44,7 @@ function lose(pickedCard){
     
     updateCardBackground(pickedCard);
     counter++;
-    sleep(600).then(() => {
+    sleep(1000).then(() => {
     console.log("lose");
     if (counter >= 10){
         counter = 10;
